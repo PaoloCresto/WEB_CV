@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="h-full overflow-hidden" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paolo Cresto | Portfolio</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6d28d9',
+              orange: '#f97316',
+            },
+            surface: '#f8f9ff',
+            'surface-dim': '#d0dbed',
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'slow-spin': 'spin 20s linear infinite',
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="layout-styles">
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #6d28d9 0%, #1e1b4b 100%);
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* Custom button sizing and interaction */
+    .hero-logo-button {
+      width: clamp(150px, 20vw, 220px);
+      height: clamp(150px, 20vw, 220px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .hero-logo-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(249, 115, 22, 0.4);
+    }
+
+    /* Radial Menu Positioning */
+    .menu-container {
+      position: relative;
+      width: clamp(300px, 80vw, 650px);
+      height: clamp(300px, 80vw, 650px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-item-hidden {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -48px; /* half of w-24 */
+      margin-top: -60px; /* adjustment for icon + text */
+      opacity: 0;
+      transform: translate(0, 0) scale(0.5);
+      pointer-events: none;
+      transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+      z-index: 5;
+    }
+
+    /* Radial math: 6 items, 60 degrees apart */
+    /* Radius is roughly 40-45% of container */
+    .menu-item-visible:nth-child(1) { transform: translate(0, -180px) scale(1); opacity: 1; pointer-events: auto; }
+    .menu-item-visible:nth-child(2) { transform: translate(156px, -90px) scale(1); opacity: 1; pointer-events: auto; }
+    .menu-item-visible:nth-child(3) { transform: translate(156px, 90px) scale(1); opacity: 1; pointer-events: auto; }
+    .menu-item-visible:nth-child(4) { transform: translate(0, 180px) scale(1); opacity: 1; pointer-events: auto; }
+    .menu-item-visible:nth-child(5) { transform: translate(-156px, 90px) scale(1); opacity: 1; pointer-events: auto; }
+    .menu-item-visible:nth-child(6) { transform: translate(-156px, -90px) scale(1); opacity: 1; pointer-events: auto; }
+
+    @media (max-width: 640px) {
+      .menu-item-visible:nth-child(1) { transform: translate(0, -130px) scale(0.85); }
+      .menu-item-visible:nth-child(2) { transform: translate(110px, -65px) scale(0.85); }
+      .menu-item-visible:nth-child(3) { transform: translate(110px, 65px) scale(0.85); }
+      .menu-item-visible:nth-child(4) { transform: translate(0, 130px) scale(0.85); }
+      .menu-item-visible:nth-child(5) { transform: translate(-110px, 65px) scale(0.85); }
+      .menu-item-visible:nth-child(6) { transform: translate(-110px, -65px) scale(0.85); }
+    }
+
+    /* Tooltip styling */
+    .discover-hint {
+      transition: opacity 0.3s ease;
+    }
+  </style>
+</head>
+<body class="text-white font-sans flex flex-col items-center justify-between">
+<!-- Header: Name -->
+<header class="w-full pt-12 text-center z-20" data-purpose="name-header">
+<h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter uppercase leading-none">
+<span class="block">PAOLO</span>
+<span class="block text-brand-orange">CRESTO</span>
+</h1>
+<p class="text-xs md:text-sm font-medium tracking-widest uppercase opacity-60 mt-4 px-4">Graphic/Web Designer | Creative Freelancer</p>
+</header>
+<!-- Main Interaction Area -->
+<main class="flex-grow flex items-center justify-center w-full relative" data-purpose="hero-section">
+<div class="menu-container">
+<!-- Center Interaction: Logo Button -->
+<div class="relative group z-10" data-purpose="interactive-logo-container">
+<!-- Glow effect behind button -->
+<div class="absolute inset-0 bg-brand-orange blur-3xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity scale-150"></div>
+<button class="hero-logo-button relative z-10 flex items-center justify-center rounded-full overflow-hidden bg-transparent border-none outline-none" id="main-cta-button">
+<img alt="Paolo Cresto Logo" class="w-3/4 h-3/4 object-contain transition-transform duration-700 group-hover:rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxf2mkDx1AoYwzcVwnVQTbKudyr-SWN9UNAHKL4X2UX90hAod6fulmAPsqKR_t2dSr7TfdhNHBwb8qWRWhj0HAVSH0qVfpHxAiUbGHs6NZQx8k0ysJZN1A4E2erjgM3JfrudDEdyLLxPDSExhJFPyS_1e2CI60ENW5pp-ZgKFufwhjEeJGkVpVDnUWzf7l7Msx4qIqmF6xdRIMIdqsUYCe4nGbUIESDtv-1akMzsPrrehDNuNFHh2X2_jGAx11Q51X7wfRjOKG53o"/>
+</button>
+<!-- Discovery Hint -->
+<div class="discover-hint absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] font-bold uppercase tracking-[0.3em] opacity-40 group-hover:opacity-100 transition-opacity" id="click-hint">
+      Click to discover
+    </div>
+</div>
+<!-- Radial Navigation Items -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none" id="radial-menu">
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">home</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">Home</span>
+</a>
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">person</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">La mia storia</span>
+</a>
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">architecture</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">Studio</span>
+</a>
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">work</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">Esperienze</span>
+</a>
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">grid_view</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">Progetti</span>
+</a>
+<a class="menu-item-hidden group flex flex-col items-center gap-2 transition-transform hover:scale-110" href="#">
+<div class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-brand-orange bg-brand-purple/20 backdrop-blur-md flex items-center justify-center text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">mail</span>
+</div>
+<span class="text-[10px] md:text-xs font-semibold uppercase tracking-widest text-center">Contatti</span>
+</a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row items-center justify-between gap-4 z-20" data-purpose="social-links">
+<!-- Copyright/Version -->
+<div class="text-[10px] font-medium opacity-40 uppercase tracking-widest">
+      © 2024 / PC Portfolio
+    </div>
+<!-- Social Navigation -->
+<nav class="flex items-center gap-8 text-[10px] md:text-xs font-semibold uppercase tracking-widest">
+<a class="hover:text-brand-orange transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-brand-orange transition-colors" href="#">GitHub</a>
+<a class="hover:text-brand-orange transition-colors" href="mailto:contact@paolocresto.com">Email</a>
+</nav>
+<!-- Visual Accent -->
+<div class="hidden md:block w-24 h-[1px] bg-white opacity-20"></div>
+</footer>
+<!-- JavaScript for interaction feedback -->
+<script data-purpose="interaction-logic">
+    const ctaButton = document.getElementById('main-cta-button');
+    const menuItems = document.querySelectorAll('.menu-item-hidden');
+    const clickHint = document.getElementById('click-hint');
+    let isOpen = false;
+
+    ctaButton.addEventListener('click', () => {
+      isOpen = !isOpen;
+      
+      menuItems.forEach((item) => {
+        if (isOpen) {
+          item.classList.add('menu-item-visible');
+          clickHint.style.opacity = '0';
+        } else {
+          item.classList.remove('menu-item-visible');
+          clickHint.style.opacity = '1';
+        }
+      });
+      
+      const logoImg = ctaButton.querySelector('img');
+      if (isOpen) {
+        logoImg.style.transform = 'rotate(180deg) scale(0.8)';
+      } else {
+        logoImg.style.transform = '';
+      }
+    });
+  </script>
+</body></html>

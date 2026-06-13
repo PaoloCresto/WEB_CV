@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="it" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Paolo Cresto - Personal Portfolio</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;800&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6d28d9', // Deep purple from Design System
+              orange: '#f97316', // Vibrant orange accent
+              surface: '#f8f9ff',
+            }
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layouts">
+    body {
+      background-color: #ffffff;
+      color: #6d28d9;
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+
+    /* Ensure full height for centering */
+    .hero-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Circular button hover transition */
+    .logo-button {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid transparent;
+    }
+
+    .logo-button:hover {
+      transform: scale(1.05);
+      border-color: #f97316;
+      box-shadow: 0 0 25px rgba(249, 115, 22, 0.2);
+    }
+  </style>
+</head>
+<body class="overflow-hidden">
+<!-- BEGIN: MainHeroContent -->
+<main class="hero-container px-4" data-purpose="main-landing-area">
+<!-- Top Section: Name -->
+<div class="text-center mb-12" data-purpose="header-name">
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter uppercase text-brand-purple">
+        Paolo Cresto
+      </h1>
+<p class="text-brand-purple text-xl md:text-2xl font-medium tracking-widest uppercase mt-4">Graphic/Web Designer | Creative Designer</p></div>
+<!-- Center Section: Interactive Logo Button -->
+<div class="flex flex-col items-center justify-center gap-8" data-purpose="central-interaction">
+<a aria-label="Discover Paolo Cresto Portfolio" class="logo-button bg-white rounded-full w-64 h-64 md:w-[600px] md:h-[600px] flex items-center justify-center overflow-hidden shadow-sm px-4" href="#discover">
+<img alt="Paolo Cresto Logo" class="w-full h-full object-contain" data-purpose="brand-logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrNd80LZq1SH-6wsNvjtEMyBPVyZbRv10sPa-CPp0HZoG-gvkQK7ez90tOqHqZGH082wGiScHsDUMf688Y5-dU0D7PhbTyqIspl6qgIlkrr_nFSzsE70MSehpFw3j-IPIRmCwogMdKC7J2J7QyVNvjOZRk7fWEQZWm3G1aN96HLD3n3RyWJjBySrMHPf511e2huVYDZPMO_W-Fz064ZaF08JIZ7n-fAeO2afBL9etyktNBtTDCyNLqt8eKx36hDV9X5M9qq5hKCKw">
+</a>
+<!-- Subtext: Click Prompt -->
+<div class="text-center">
+<p class="text-brand-purple/50 text-xl md:text-2xl font-medium tracking-widest uppercase animate-pulse-slow">
+          click to discover
+        </p>
+</div>
+</div>
+</main>
+<!-- END: MainHeroContent -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="fixed bottom-8 left-0 w-full" data-purpose="site-footer">
+<nav class="flex justify-center items-center gap-8 text-brand-purple font-semibold uppercase tracking-widest text-sm md:text-base">
+<a class="hover:text-brand-orange transition-colors duration-300" href="#">LinkedIn</a>
+<a class="hover:text-brand-orange transition-colors duration-300" href="#">GitHub</a>
+<a class="hover:text-brand-orange transition-colors duration-300" href="mailto:contact@paolocresto.it">Email</a>
+</nav>
+</footer>
+<!-- END: MinimalFooter -->
+
+
+
+
+</body></html>

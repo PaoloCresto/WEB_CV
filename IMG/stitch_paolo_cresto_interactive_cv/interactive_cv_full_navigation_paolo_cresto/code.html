@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="it" style=""><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paolo Cresto | Portfolio</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols for Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6d28d9',
+              orange: '#f97316',
+            },
+            surface: '#f8f9ff',
+            'surface-dim': '#d0dbed',
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'slow-spin': 'spin 20s linear infinite',
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="layout-styles">
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Clean landing page experience - No scroll per request */
+      background: radial-gradient(circle at center, #6d28d9 0%, #1e1b4b 100%);
+      height: 100vh;
+    }
+
+    /* Custom button sizing and interaction */
+    .hero-logo-button {
+      width: clamp(140px, 18vw, 220px);
+      height: clamp(140px, 18vw, 220px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .hero-logo-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(249, 115, 22, 0.4);
+    }
+
+    /* Radial Menu Styles */
+    .radial-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .menu-open .radial-item {
+      opacity: 1;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Tooltip styling for menu labels */
+    .radial-label {
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-weight: 600;
+    }
+
+    .radial-item:hover .radial-label {
+      opacity: 1;
+    }
+
+    /* Rotation logic handled via JS for exact circle */
+  </style>
+</head>
+<body class="h-full text-white font-sans flex flex-col items-center justify-center overflow-hidden">
+<!-- BEGIN: MainHeroContent -->
+<main class="relative flex-grow flex flex-col items-center justify-center text-center p-6 w-full h-full" data-purpose="hero-section" id="menu-container">
+<!-- Hero Header: Name -->
+<div class="mb-12 z-20" data-purpose="name-header">
+<h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter uppercase leading-none">
+<span class="block">PAOLO</span>
+<span class="block text-brand-orange">CRESTO</span>
+</h1>
+<p class="text-lg md:text-xl font-medium tracking-widest uppercase opacity-60 mt-4">Graphic/Web Designer | Creative Freelancer</p>
+</div>
+<!-- Center Interaction: Logo & Radial Menu -->
+<div class="relative flex items-center justify-center" data-purpose="interactive-logo-container" style="min-height: 400px; width: 100%;">
+<!-- Radial Buttons -->
+<!-- Home -->
+<div class="radial-item group" data-index="0" style="--tw-translate-x: 0px; --tw-translate-y: -200px; transition-delay: 0s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="document.getElementById('main-cta-button').click();">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">close</span>
+</button>
+<span class="radial-label">Chiudi</span>
+</div>
+<!-- La mia storia -->
+<div class="radial-item group" data-index="1" style="--tw-translate-x: 173px; --tw-translate-y: -100px; transition-delay: 0.05s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="const overlay = document.getElementById('content-overlay'); const target = document.getElementById('overlay-content-target'); target.innerHTML = '&lt;h2 class=&quot;text-5xl font-extrabold uppercase mb-6&quot;&gt;La mia storia&lt;/h2&gt;&lt;p class=&quot;text-xl opacity-80 leading-relaxed&quot;&gt;Un percorso creativo iniziato con la passione per il design visivo, evolutosi in una carriera dedicata alla creazione di esperienze digitali uniche e funzionali.&lt;/p&gt;'; overlay.classList.remove('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">person</span>
+</button>
+<span class="radial-label">La mia storia</span>
+</div>
+<!-- Competenze -->
+<div class="radial-item group" data-index="2" style="--tw-translate-x: 173px; --tw-translate-y: 100px; transition-delay: 0.1s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="const overlay = document.getElementById('content-overlay'); const target = document.getElementById('overlay-content-target'); target.innerHTML = '&lt;h2 class=&quot;text-5xl font-extrabold uppercase mb-6&quot;&gt;Competenze&lt;/h2&gt;&lt;div class=&quot;grid grid-cols-2 gap-4 text-lg uppercase tracking-widest&quot;&gt;&lt;div class=&quot;p-4 border border-white/10&quot;&gt;UI/UX Design&lt;/div&gt;&lt;div class=&quot;p-4 border border-white/10&quot;&gt;Web Development&lt;/div&gt;&lt;div class=&quot;p-4 border border-white/10&quot;&gt;Branding&lt;/div&gt;&lt;div class=&quot;p-4 border border-white/10&quot;&gt;Motion Graphics&lt;/div&gt;&lt;/div&gt;'; overlay.classList.remove('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">terminal</span>
+</button>
+<span class="radial-label">Competenze</span>
+</div>
+<!-- Esperienze -->
+<div class="radial-item group" data-index="3" style="--tw-translate-x: 0px; --tw-translate-y: 200px; transition-delay: 0.15s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="const overlay = document.getElementById('content-overlay'); const target = document.getElementById('overlay-content-target'); target.innerHTML = '&lt;h2 class=&quot;text-5xl font-extrabold uppercase mb-6&quot;&gt;Esperienze&lt;/h2&gt;&lt;p class=&quot;text-xl opacity-80&quot;&gt;Oltre 5 anni di collaborazione con agenzie internazionali e startup innovative, trasformando idee complesse in soluzioni visive d\'impatto.&lt;/p&gt;'; overlay.classList.remove('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">work</span>
+</button>
+<span class="radial-label">Esperienze</span>
+</div>
+<!-- Progetti -->
+<div class="radial-item group" data-index="4" style="--tw-translate-x: -173px; --tw-translate-y: 100px; transition-delay: 0.2s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="const overlay = document.getElementById('content-overlay'); const target = document.getElementById('overlay-content-target'); target.innerHTML = '&lt;h2 class=&quot;text-5xl font-extrabold uppercase mb-6&quot;&gt;Progetti&lt;/h2&gt;&lt;p class=&quot;text-xl opacity-80&quot;&gt;Dal web design minimalista alle campagne di branding integrate. Esplora la selezione dei miei lavori più recenti.&lt;/p&gt;&lt;button class=&quot;mt-8 px-8 py-4 bg-brand-orange font-bold uppercase tracking-widest hover:bg-white hover:text-brand-orange transition-all&quot;&gt;Vedi Portfolio&lt;/button&gt;'; overlay.classList.remove('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">dashboard</span>
+</button>
+<span class="radial-label">Progetti</span>
+</div>
+<!-- Contatti -->
+<div class="radial-item group" data-index="5" style="--tw-translate-x: -173px; --tw-translate-y: -100px; transition-delay: 0.25s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="const overlay = document.getElementById('content-overlay'); const target = document.getElementById('overlay-content-target'); target.innerHTML = '&lt;h2 class=&quot;text-5xl font-extrabold uppercase mb-6&quot;&gt;Contatti&lt;/h2&gt;&lt;p class=&quot;text-xl mb-8&quot;&gt;Hai un progetto in mente? Parliamone.&lt;/p&gt;&lt;a href=&quot;mailto:contact@paolocresto.com&quot; class=&quot;text-3xl font-bold text-brand-orange hover:text-white transition-colors&quot;&gt;contact@paolocresto.com&lt;/a&gt;'; overlay.classList.remove('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">mail</span>
+</button>
+<span class="radial-label">Contatti</span>
+</div>
+<!-- Main Toggle Button (Logo) -->
+<div class="relative z-10 group cursor-pointer" id="main-cta-button">
+<!-- Glow effect behind button -->
+<div class="absolute inset-0 bg-brand-orange blur-3xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity"></div>
+<div class="hero-logo-button relative z-10 flex items-center justify-center rounded-full overflow-hidden bg-brand-purple/20 backdrop-blur-sm border border-white/10 transition-none">
+<img alt="Paolo Cresto Logo" class="w-3/4 h-3/4 object-contain transition-transform duration-700 group-hover:rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7aOC3TCvv8BP1DCuTbhm3VuJOOqjbFDdQ4YFWJNPBqDLXyWj1RHlGhECMO5DpaCrcSp4rPLSnZs-NJhCRVS-Ee3CsjWLxxXRMHzE-F2LopVTd2oga2tNX7OP3G6IDeUl2r8xgFJjcSMFq2ABAqAorgZ3ZvGZRW-MHHQJh8Qg21awI0QnXC8x8AqbmYN-QOdiK4dt_V7fraAZZyfZWGFFEBlLpUqtuIhtyzuXCYH9KuHIK3dVHD69ss7LTRrvvTDVbqudfdsmO1tM"/>
+</div>
+</div>
+</div>
+<!-- Hero Footer: Instruction -->
+<div class="mt-12 z-20" data-purpose="instruction-text">
+<p class="text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-0 animate-pulse-subtle hidden" id="instruction-label">click to discover</p>
+</div>
+</main>
+<!-- END: MainHeroContent -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row items-center justify-between gap-4 z-20" data-purpose="social-links">
+<!-- Copyright/Version -->
+<div class="text-xs font-medium opacity-40 uppercase tracking-widest">
+    © 2024 / PC Portfolio
+  </div>
+<!-- Social Navigation -->
+<nav class="flex items-center gap-8 text-sm font-semibold uppercase tracking-widest">
+<a class="hover:text-brand-orange transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-brand-orange transition-colors" href="#">GitHub</a>
+<a class="hover:text-brand-orange transition-colors" href="mailto:contact@paolocresto.com">Email</a>
+</nav>
+<!-- Visual Accent -->
+<div class="hidden md:block w-24 h-[1px] bg-white opacity-20"></div>
+</footer>
+<!-- END: MinimalFooter -->
+<!-- JavaScript for Radial Menu Logic -->
+<script data-purpose="interaction-logic">
+  const menuBtn = document.getElementById('main-cta-button');
+  const container = document.getElementById('menu-container');
+  const instructionLabel = document.getElementById('instruction-label');
+  const items = document.querySelectorAll('.radial-item');
+  
+  let isOpen = false;
+
+  // Configuration for radial layout
+  const radius = window.innerWidth < 768 ? 140 : 200; // Radius in pixels
+  const totalItems = items.length;
+
+  // Initialize button positions
+  items.forEach((item, index) => {
+    const angle = (index / totalItems) * 2 * Math.PI - (Math.PI / 2); // Start from top
+    const x = Math.round(Math.cos(angle) * radius);
+    const y = Math.round(Math.sin(angle) * radius);
+    
+    // Set custom CSS properties for translation
+    item.style.setProperty('--tw-translate-x', `${x}px`);
+    item.style.setProperty('--tw-translate-y', `${y}px`);
+    
+    // Stagger delay
+    item.style.transitionDelay = `${index * 0.05}s`;
+  });
+
+  menuBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      container.classList.add('menu-open');
+      instructionLabel.innerText = 'explore the menu';
+      instructionLabel.classList.remove('animate-pulse-subtle');
+    } else {
+      container.classList.remove('menu-open');
+      instructionLabel.innerText = 'click to discover';
+      instructionLabel.classList.add('animate-pulse-subtle');
+    }
+  });
+
+  // Handle window resize for radius adjustments
+  window.addEventListener('resize', () => {
+    const newRadius = window.innerWidth < 768 ? 140 : 200;
+    items.forEach((item, index) => {
+      const angle = (index / totalItems) * 2 * Math.PI - (Math.PI / 2);
+      const x = Math.round(Math.cos(angle) * newRadius);
+      const y = Math.round(Math.sin(angle) * newRadius);
+      item.style.setProperty('--tw-translate-x', `${x}px`);
+      item.style.setProperty('--tw-translate-y', `${y}px`);
+    });
+  });
+</script>
+<div class="fixed inset-0 z-50 bg-brand-purple/95 backdrop-blur-sm flex flex-col items-center justify-center p-8 opacity-0 pointer-events-none transition-opacity duration-500" id="content-overlay">
+<button class="absolute top-8 right-8 w-14 h-14 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" id="close-overlay" onclick="document.getElementById('content-overlay').classList.add('opacity-0', 'pointer-events-none');">
+<span class="material-symbols-outlined !text-3xl">close</span>
+</button>
+<div class="w-full max-w-4xl text-center" id="overlay-content-target">
+<!-- Content injected here -->
+</div>
+</div></body></html>

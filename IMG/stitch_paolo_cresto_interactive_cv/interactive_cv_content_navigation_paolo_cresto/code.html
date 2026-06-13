@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="it"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Paolo Cresto | Portfolio</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols for Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6d28d9',
+              orange: '#f97316',
+            },
+            surface: '#f8f9ff',
+            'surface-dim': '#d0dbed',
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'slow-spin': 'spin 20s linear infinite',
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="layout-styles">
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Clean landing page experience - No scroll per request */
+      background: radial-gradient(circle at center, #6d28d9 0%, #1e1b4b 100%);
+      height: 100vh;
+    }
+
+    /* Custom button sizing and interaction */
+    .hero-logo-button {
+      width: clamp(140px, 18vw, 220px);
+      height: clamp(140px, 18vw, 220px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .hero-logo-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(249, 115, 22, 0.4);
+    }
+
+    /* Radial Menu Styles */
+    .radial-item {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .menu-open .radial-item {
+      opacity: 1;
+      transform: translate(var(--tw-translate-x), var(--tw-translate-y)) scale(1);
+      pointer-events: auto;
+    }
+
+    /* Tooltip styling for menu labels */
+    .radial-label {
+      position: absolute;
+      top: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      font-weight: 600;
+    }
+
+    .radial-item:hover .radial-label {
+      opacity: 1;
+    }
+
+    /* Modal Overlay Styles */
+    #content-overlay {
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    #content-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    #content-overlay.hidden-state {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+<body class="h-full text-white font-sans flex flex-col items-center justify-center overflow-hidden">
+<!-- BEGIN: MainHeroContent -->
+<main class="relative flex-grow flex flex-col items-center justify-center text-center p-6 w-full h-full" data-purpose="hero-section" id="menu-container">
+<!-- Hero Header: Name -->
+<div class="mb-12 z-20" data-purpose="name-header" id="hero-header">
+<h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter uppercase leading-none">
+<span class="block">PAOLO</span>
+<span class="block text-brand-orange">CRESTO</span>
+</h1>
+<p class="text-lg md:text-xl font-medium tracking-widest uppercase opacity-60 mt-4">Graphic/Web Designer | Creative Freelancer</p>
+</div>
+<!-- Center Interaction: Logo & Radial Menu -->
+<div class="relative flex items-center justify-center" data-purpose="interactive-logo-container" style="min-height: 400px; width: 100%;">
+<!-- Radial Buttons -->
+<!-- Home -->
+<div class="radial-item group" data-index="0" style="--tw-translate-x: 0px; --tw-translate-y: -200px; transition-delay: 0s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('home')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">home</span>
+</button>
+<span class="radial-label">Home</span>
+</div>
+<!-- La mia storia -->
+<div class="radial-item group" data-index="1" style="--tw-translate-x: 173px; --tw-translate-y: -100px; transition-delay: 0.05s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('storia')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">person</span>
+</button>
+<span class="radial-label">La mia storia</span>
+</div>
+<!-- Competenze -->
+<div class="radial-item group" data-index="2" style="--tw-translate-x: 173px; --tw-translate-y: 100px; transition-delay: 0.1s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('competenze')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">terminal</span>
+</button>
+<span class="radial-label">Competenze</span>
+</div>
+<!-- Esperienze -->
+<div class="radial-item group" data-index="3" style="--tw-translate-x: 0px; --tw-translate-y: 200px; transition-delay: 0.15s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('esperienze')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">work</span>
+</button>
+<span class="radial-label">Esperienze</span>
+</div>
+<!-- Progetti -->
+<div class="radial-item group" data-index="4" style="--tw-translate-x: -173px; --tw-translate-y: 100px; transition-delay: 0.2s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('progetti')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">dashboard</span>
+</button>
+<span class="radial-label">Progetti</span>
+</div>
+<!-- Contatti -->
+<div class="radial-item group" data-index="5" style="--tw-translate-x: -173px; --tw-translate-y: -100px; transition-delay: 0.25s;">
+<button class="w-14 h-14 md:w-16 md:h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg hover:bg-white hover:text-brand-orange transition-all duration-300" onclick="openModal('contatti')">
+<span class="material-symbols-outlined !text-2xl md:!text-3xl">mail</span>
+</button>
+<span class="radial-label">Contatti</span>
+</div>
+<!-- Main Toggle Button (Logo) -->
+<div class="relative z-10 group cursor-pointer" id="main-cta-button">
+<!-- Glow effect behind button -->
+<div class="absolute inset-0 bg-brand-orange blur-3xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity"></div>
+<div class="hero-logo-button relative z-10 flex items-center justify-center rounded-full overflow-hidden bg-brand-purple/20 backdrop-blur-sm border border-white/10 transition-none">
+<img alt="Paolo Cresto Logo" class="w-3/4 h-3/4 object-contain transition-transform duration-700 group-hover:rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7aOC3TCvv8BP1DCuTbhm3VuJOOqjbFDdQ4YFWJNPBqDLXyWj1RHlGhECMO5DpaCrcSp4rPLSnZs-NJhCRVS-Ee3CsjWLxxXRMHzE-F2LopVTd2oga2tNX7OP3G6IDeUl2r8xgFJjcSMFq2ABAqAorgZ3ZvGZRW-MHHQJh8Qg21awI0QnXC8x8AqbmYN-QOdiK4dt_V7fraAZZyfZWGFFEBlLpUqtuIhtyzuXCYH9KuHIK3dVHD69ss7LTRrvvTDVbqudfdsmO1tM"/>
+</div>
+</div>
+</div>
+<!-- Hero Footer: Instruction -->
+<div class="mt-12 z-20" data-purpose="instruction-text">
+<p class="text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-60 animate-pulse-subtle" id="instruction-label">click to discover</p>
+</div>
+</main>
+<!-- END: MainHeroContent -->
+<!-- BEGIN: Content Modal Overlay -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-brand-purple/95 backdrop-blur-md hidden-state" id="content-overlay">
+<div class="container max-w-4xl px-6 py-12 relative flex flex-col items-center justify-center text-center">
+<!-- Close Button -->
+<button class="absolute top-0 right-0 m-6 md:m-12 text-white/50 hover:text-brand-orange transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined !text-4xl md:!text-5xl">close</span>
+</button>
+<!-- Dynamic Content Area -->
+<div id="modal-body-content">
+<h2 class="text-4xl md:text-6xl font-extrabold text-brand-orange mb-6 uppercase tracking-tighter" id="modal-title">Titolo</h2>
+<div class="text-lg md:text-xl font-light leading-relaxed opacity-90 max-w-2xl mx-auto" id="modal-text">
+        Caricamento contenuti...
+      </div>
+</div>
+<!-- Modal Back Link -->
+<div class="mt-12">
+<button class="px-8 py-3 border border-white/20 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-brand-orange hover:border-brand-orange transition-all" onclick="closeModal()">Torna al Menu</button>
+</div>
+</div>
+</div>
+<!-- END: Content Modal Overlay -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row items-center justify-between gap-4 z-20" data-purpose="social-links" id="main-footer">
+<!-- Copyright/Version -->
+<div class="text-xs font-medium opacity-40 uppercase tracking-widest">
+    © 2024 / PC Portfolio
+  </div>
+<!-- Social Navigation -->
+<nav class="flex items-center gap-8 text-sm font-semibold uppercase tracking-widest">
+<a class="hover:text-brand-orange transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-brand-orange transition-colors" href="#">GitHub</a>
+<a class="hover:text-brand-orange transition-colors" href="mailto:contact@paolocresto.com">Email</a>
+</nav>
+<!-- Visual Accent -->
+<div class="hidden md:block w-24 h-[1px] bg-white opacity-20"></div>
+</footer>
+<!-- END: MinimalFooter -->
+<!-- JavaScript for Radial Menu and Modal Logic -->
+<script data-purpose="interaction-logic">
+  const menuBtn = document.getElementById('main-cta-button');
+  const container = document.getElementById('menu-container');
+  const instructionLabel = document.getElementById('instruction-label');
+  const items = document.querySelectorAll('.radial-item');
+  const overlay = document.getElementById('content-overlay');
+  const modalTitle = document.getElementById('modal-title');
+  const modalText = document.getElementById('modal-text');
+  
+  let isOpen = false;
+
+  // Content Data
+  const sectionContent = {
+    home: {
+      title: 'Home',
+      text: 'Benvenuti nella mia Home. Sono un Graphic e Web Designer focalizzato sulla creazione di esperienze digitali memorabili e identità visive uniche.'
+    },
+    storia: {
+      title: 'La mia storia',
+      text: 'Il mio percorso inizia con una passione per il visual design e l\'informatica. Negli anni ho affinato il mio occhio critico collaborando con diverse agenzie e clienti internazionali.'
+    },
+    competenze: {
+      title: 'Competenze',
+      text: 'Dall\'Adobe Creative Suite al frontend development con React e Tailwind. Unisco design thinking e competenze tecniche per risolvere problemi complessi.'
+    },
+    esperienze: {
+      title: 'Esperienze',
+      text: 'Anni di esperienza come freelancer e in-house designer. Ho gestito progetti che spaziano dal branding aziendale allo sviluppo di interfacce utente scalabili.'
+    },
+    progetti: {
+      title: 'Progetti',
+      text: 'Una selezione di lavori che rappresentano la mia filosofia progettuale: minimalismo, funzionalità e un pizzico di innovazione tecnologica.'
+    },
+    contatti: {
+      title: 'Contatti',
+      text: 'Sei interessato a collaborare o vuoi semplicemente fare due chiacchiere? Scrivimi a contact@paolocresto.com o connettiti sui social.'
+    }
+  };
+
+  // Configuration for radial layout
+  const radius = window.innerWidth < 768 ? 140 : 200; // Radius in pixels
+  const totalItems = items.length;
+
+  // Initialize button positions
+  items.forEach((item, index) => {
+    const angle = (index / totalItems) * 2 * Math.PI - (Math.PI / 2); // Start from top
+    const x = Math.round(Math.cos(angle) * radius);
+    const y = Math.round(Math.sin(angle) * radius);
+    
+    // Set custom CSS properties for translation
+    item.style.setProperty('--tw-translate-x', `${x}px`);
+    item.style.setProperty('--tw-translate-y', `${y}px`);
+    
+    // Stagger delay
+    item.style.transitionDelay = `${index * 0.05}s`;
+  });
+
+  menuBtn.addEventListener('click', () => {
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      container.classList.add('menu-open');
+      instructionLabel.innerText = 'explore the menu';
+      instructionLabel.classList.remove('animate-pulse-subtle');
+    } else {
+      container.classList.remove('menu-open');
+      instructionLabel.innerText = 'click to discover';
+      instructionLabel.classList.add('animate-pulse-subtle');
+    }
+  });
+
+  function openModal(section) {
+    const content = sectionContent[section];
+    if (content) {
+      modalTitle.innerText = content.title;
+      modalText.innerText = content.text;
+      overlay.classList.remove('hidden-state');
+      overlay.classList.add('active');
+    }
+  }
+
+  function closeModal() {
+    overlay.classList.remove('active');
+    setTimeout(() => {
+      overlay.classList.add('hidden-state');
+    }, 400);
+  }
+
+  // Handle window resize for radius adjustments
+  window.addEventListener('resize', () => {
+    const newRadius = window.innerWidth < 768 ? 140 : 200;
+    items.forEach((item, index) => {
+      const angle = (index / totalItems) * 2 * Math.PI - (Math.PI / 2);
+      const x = Math.round(Math.cos(angle) * newRadius);
+      const y = Math.round(Math.sin(angle) * newRadius);
+      item.style.setProperty('--tw-translate-x', `${x}px`);
+      item.style.setProperty('--tw-translate-y', `${y}px`);
+    });
+  });
+</script>
+</body></html>

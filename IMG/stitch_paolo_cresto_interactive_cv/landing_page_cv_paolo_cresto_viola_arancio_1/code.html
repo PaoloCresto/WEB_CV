@@ -1,0 +1,108 @@
+<!DOCTYPE html><html class="h-full" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Paolo Cresto | Portfolio</title>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Hanken Grotesk (from Design System) -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;600;800&amp;display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              purple: '#6d28d9',
+              orange: '#f97316',
+            },
+            surface: '#f8f9ff',
+            'surface-dim': '#d0dbed',
+          },
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          animation: {
+            'slow-spin': 'spin 20s linear infinite',
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="layout-styles">
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Clean landing page experience */
+      background: radial-gradient(circle at center, #6d28d9 0%, #1e1b4b 100%);
+    }
+
+    /* Custom button sizing and interaction */
+    .hero-logo-button {
+      width: clamp(180px, 25vw, 300px);
+      height: clamp(180px, 25vw, 300px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-logo-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(249, 115, 22, 0.4);
+    }
+  </style>
+</head>
+<body class="h-full text-white font-sans flex flex-col items-center justify-center">
+<!-- BEGIN: MainHeroContent -->
+<main class="flex-grow flex flex-col items-center justify-center text-center p-6" data-purpose="hero-section">
+<!-- Hero Header: Name -->
+<div class="mb-8 md:mb-12" data-purpose="name-header">
+<h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter uppercase leading-none">
+<span class="block">PAOLO</span>
+<span class="block text-brand-orange">CRESTO</span>
+</h1>
+<p class="text-lg md:text-xl font-medium tracking-widest uppercase opacity-60 mt-4">Graphic/Web Designer | Creative Freelancer</p></div>
+<!-- Center Interaction: Logo Button -->
+<div class="relative group" data-purpose="interactive-logo-container">
+<!-- Glow effect behind button -->
+<div class="absolute inset-0 bg-brand-orange blur-3xl opacity-20 rounded-full group-hover:opacity-40 transition-opacity"></div>
+<a class="hero-logo-button relative z-10 flex items-center justify-center rounded-full overflow-hidden" href="#discover" id="main-cta-button">
+<img alt="Paolo Cresto Logo" class="w-3/4 h-3/4 object-contain transition-transform duration-700 group-hover:rotate-12" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7aOC3TCvv8BP1DCuTbhm3VuJOOqjbFDdQ4YFWJNPBqDLXyWj1RHlGhECMO5DpaCrcSp4rPLSnZs-NJhCRVS-Ee3CsjWLxxXRMHzE-F2LopVTd2oga2tNX7OP3G6IDeUl2r8xgFJjcSMFq2ABAqAorgZ3ZvGZRW-MHHQJh8Qg21awI0QnXC8x8AqbmYN-QOdiK4dt_V7fraAZZyfZWGFFEBlLpUqtuIhtyzuXCYH9KuHIK3dVHD69ss7LTRrvvTDVbqudfdsmO1tM">
+</a>
+</div>
+<!-- Hero Footer: Instruction -->
+<div class="mt-8 md:mt-12" data-purpose="instruction-text">
+<p class="text-lg md:text-xl font-light tracking-[0.3em] uppercase opacity-60 animate-pulse-subtle">
+        click to discover
+      </p>
+</div>
+</main>
+<!-- END: MainHeroContent -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="w-full py-8 px-6 flex flex-col md:flex-row items-center justify-between gap-4" data-purpose="social-links">
+<!-- Copyright/Version -->
+<div class="text-xs font-medium opacity-40 uppercase tracking-widest">
+      © 2024 / PC Portfolio
+    </div>
+<!-- Social Navigation -->
+<nav class="flex items-center gap-8 text-sm font-semibold uppercase tracking-widest">
+<a class="hover:text-brand-orange transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-brand-orange transition-colors" href="#">GitHub</a>
+<a class="hover:text-brand-orange transition-colors" href="mailto:contact@paolocresto.com">Email</a>
+</nav>
+<!-- Visual Accent -->
+<div class="hidden md:block w-24 h-[1px] bg-white opacity-20"></div>
+</footer>
+<!-- END: MinimalFooter -->
+<!-- JavaScript for interaction feedback -->
+<script data-purpose="interaction-logic">
+    document.getElementById('main-cta-button').addEventListener('click', (e) => {
+      // Optional: Add a transition effect here or navigation logic
+      console.log('Initiating discovery transition...');
+    });
+  </script>
+
+
+
+
+</body></html>
