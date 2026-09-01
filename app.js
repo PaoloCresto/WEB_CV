@@ -70,21 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="w-16 h-1 bg-brand-orange rounded-full"></div>
                     <p class="text-xl sm:text-2xl font-light tracking-wide text-brand-lightBg leading-relaxed">
                         Ciao, sono <strong class="font-bold text-brand-orange">Paolo Cresto</strong>.<br>
-                        Un Graphic Designer e Creative Freelancer focalizzato sull'integrazione di strumenti avanzati di Intelligenza Artificiale nei flussi di lavoro visivi.
+                        Personal Trainer di II Livello (AIF), appassionato di ginnastica finalizzata alla salute e al fitness.
                     </p>
                     <p class="text-sm sm:text-base opacity-75 leading-relaxed font-light">
-                        Unisco design creativo, marketing orientato agli obiettivi e analisi data-driven per creare esperienze visive e digitali che comunicano valore reale, ottimizzano risorse e supportano decisioni di business.
+                        La mia filosofia di allenamento si basa su costanza e metodo. Affronto ogni percorso con ascolto e attenzione agli obiettivi personali del cliente, sempre in un'ottica di miglioramento e cura globale della persona.
                     </p>
                     <div class="pt-6 grid grid-cols-2 gap-6 w-full text-left">
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-colors">
-                            <span class="material-symbols-outlined text-brand-orange mb-2">palette</span>
-                            <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Visual Design</h4>
-                            <p class="text-xs opacity-70">Identità visive di forte impatto e design per progetti promozionali cartacei e digitali.</p>
+                            <span class="material-symbols-outlined text-brand-orange mb-2">fitness_center</span>
+                            <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Training Personalizzato</h4>
+                            <p class="text-xs opacity-70">Programmi di allenamento su misura per raggiungere i tuoi obiettivi fisici e di salute.</p>
                         </div>
                         <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-colors">
                             <span class="material-symbols-outlined text-brand-orange mb-2">psychology</span>
-                            <h4 class="font-bold text-sm uppercase tracking-wider mb-1">AI Integration</h4>
-                            <p class="text-xs opacity-70">Utilizzo di algoritmi generativi per ideazione rapida, editing e animazione grafica avanzata.</p>
+                            <h4 class="font-bold text-sm uppercase tracking-wider mb-1">Motivazione & Supporto</h4>
+                            <p class="text-xs opacity-70">Costante affiancamento per mantenere alta l'adesione al programma e la determinazione.</p>
                         </div>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
             html: `
                 <div class="flex flex-col items-center max-w-2xl mx-auto space-y-6 text-left">
                     <p class="text-base sm:text-lg font-light leading-relaxed">
-                        Nato a Torino nel 2006, ho sviluppato presto una forte propensione per il settore visivo e digitale, trasformando la mia attitudine in una professione freelance strutturata. 
+                        Il mio percorso professionale non è stato lineare nel mondo dello sport, ma le mie esperienze precedenti mi hanno fornito competenze trasversali indispensabili per un Personal Trainer moderno.
                     </p>
                     <p class="text-base sm:text-lg font-light leading-relaxed text-white/80">
-                        Credo fermamente che il <strong class="text-brand-orange font-bold">design non sia solo estetica</strong>, ma uno strumento strategico chiave per il business. Per questo motivo, affianco alle mie competenze grafiche un solido interesse per l'organizzazione aziendale, l'analisi finanziaria e lo studio di mercato.
+                        L'esperienza in ambito immobiliare mi ha insegnato l'ascolto e la gestione del cliente. Il mio background nel <strong class="text-brand-orange font-bold">graphic design</strong> mi ha trasmesso rigore e organizzazione del lavoro. Oggi unisco queste qualità nel fitness, offrendo professionalità, chiarezza comunicativa e competenze digitali complementari.
                     </p>
                     <div class="w-full p-4 rounded-xl bg-white/5 border border-white/10 mt-2">
                         <h4 class="text-xs font-bold uppercase tracking-widest text-brand-orange mb-2">Profilo Personale</h4>
@@ -106,35 +106,37 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><span class="opacity-60">Residenza:</span> Robassomero, Torino (IT)</li>
                             <li><span class="opacity-60">Data di Nascita:</span> 16 Agosto 2006</li>
                             <li><span class="opacity-60">Nazionalità:</span> Italiana</li>
-                            <li><span class="opacity-60">Attività:</span> Graphic Designer & Imprenditore</li>
+                            <li><span class="opacity-60">Attività:</span> Personal Trainer II Livello</li>
                         </ul>
                     </div>
                 </div>
             `
         },
         studio: {
-            title: "Studio",
+            title: "Studio e Qualifiche",
             html: `
                 <div class="max-w-2xl mx-auto space-y-8">
                     <!-- Timeline di Formazione -->
                     <div class="space-y-6">
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
-                            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">2025 - In corso</span>
-                            <h3 class="text-lg font-bold mt-1 text-white">Specializzazione in AI-Driven Design & Visual Automation</h3>
-                            <p class="text-sm opacity-60">Auto-formazione strutturata e corsi professionali avanzati</p>
+                            <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">2026</span>
+                            <h3 class="text-lg font-bold mt-1 text-white">Personal Trainer II Livello / Istruttore</h3>
+                            <p class="text-sm opacity-60">Accademia Italiana Fitness (AIF)</p>
                             <p class="text-xs mt-2 opacity-75 font-light">
-                                Studio approfondito sull'integrazione di modelli generativi per grafica e video nel flusso di lavoro creativo (ComfyUI, Midjourney, Stable Diffusion, Luma, Runway), prompt engineering avanzato e ottimizzazione delle risorse digitali.
+                                Qualifica tecnica per attività sportiva di ginnastica finalizzata alla salute e al fitness.<br>
+                                Iscrizione all'Albo Nazionale AIF (n. 66460).<br>
+                                Diplomi e Tesserino Tecnico rilasciati (AIF, Libertas, MSP).
                             </p>
                         </div>
                         
                         <div class="timeline-item">
                             <div class="timeline-dot"></div>
                             <span class="text-xs font-bold text-brand-orange uppercase tracking-wider">2020 - 2025</span>
-                            <h3 class="text-lg font-bold mt-1 text-white">Diploma Superiore in Grafica e Comunicazione</h3>
-                            <p class="text-sm opacity-60">Istituto Tecnico Tecnologico</p>
+                            <h3 class="text-lg font-bold mt-1 text-white">Qualifica triennale in Graphic Design</h3>
+                            <p class="text-sm opacity-60">Settore Grafica e Comunicazione</p>
                             <p class="text-xs mt-2 opacity-75 font-light">
-                                Acquisizione di competenze teorico-pratiche in comunicazione visiva, layout grafico, prestampa, editoria digitale, fotografia e software di settore (Adobe Creative Suite: Photoshop, Illustrator, InDesign).
+                                Acquisizione di competenze teorico-pratiche in comunicazione visiva, layout grafico, prestampa, editoria digitale, fotografia e software di settore.
                             </p>
                         </div>
                     </div>
@@ -178,44 +180,41 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         },
         progetti: {
-            title: "Progetti",
+            title: "Competenze",
             html: `
                 <div class="max-w-4xl mx-auto space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <!-- Progetto 1 -->
+                        <!-- Competenza 1 -->
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between text-left group hover:-translate-y-1">
                             <div>
-                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">auto_awesome</span>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">AI Content Campaign</h3>
+                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">health_and_safety</span>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">Salute e Fitness</h3>
                                 <p class="text-xs opacity-75 font-light leading-relaxed">
-                                    Generazione di asset visivi pubblicitari statici ed animati integrando modelli generativi per ridurre i tempi di produzione mantenendo alta la coerenza di brand.
+                                    Istruttore qualificato per l'attività sportiva di ginnastica finalizzata alla salute e al benessere fisico, con forte orientamento agli obiettivi.
                                 </p>
                             </div>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-brand-orange/80 mt-4">Giorgio Risi SRL</span>
                         </div>
                         
-                        <!-- Progetto 2 -->
+                        <!-- Competenza 2 -->
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between text-left group hover:-translate-y-1">
                             <div>
-                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">menu_book</span>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">Impaginazione Editoriale</h3>
+                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">groups</span>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">Relazione e Comunicazione</h3>
                                 <p class="text-xs opacity-75 font-light leading-relaxed">
-                                    Progettazione e verifica di file complessi per la stampa digitale ed offset di cataloghi commerciali, pieghevoli pubblicitari e brochure editoriali.
+                                    Gestione empatica del cliente e capacità di relazionarsi con il pubblico in modo chiaro, derivata dalla mia esperienza nell'ambito consulenziale immobiliare.
                                 </p>
                             </div>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-brand-orange/80 mt-4">Officine Poligrafiche</span>
                         </div>
                         
-                        <!-- Progetto 3 -->
+                        <!-- Competenza 3 -->
                         <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between text-left group hover:-translate-y-1">
                             <div>
-                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">campaign</span>
-                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">Marketing Immobiliare</h3>
+                                <span class="material-symbols-outlined text-brand-orange text-3xl mb-3">design_services</span>
+                                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-orange transition-colors">Graphic Design</h3>
                                 <p class="text-xs opacity-75 font-light leading-relaxed">
-                                    Sviluppo di materiali di marketing cartacei e digitali a supporto della promozione di immobili di pregio e analisi grafiche di mercato.
+                                    Competenza complementare per la creazione di contenuti visivi. Offro supporto per la comunicazione, con capacità di organizzazione e gestione delle scadenze.
                                 </p>
                             </div>
-                            <span class="text-[10px] uppercase font-bold tracking-wider text-brand-orange/80 mt-4">Tempocasa</span>
                         </div>
                     </div>
                 </div>
