@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="w-16 h-1 bg-brand-orange rounded-full"></div>
                     <p class="text-xl sm:text-2xl font-light tracking-wide text-brand-lightBg leading-relaxed">
                         Ciao, sono <strong class="font-bold text-brand-orange">Paolo Cresto</strong>.<br>
-                        Personal Trainer di II Livello (AIF), appassionato di ginnastica finalizzata alla salute e al fitness.
+                        Personal Trainer di II Livello, appassionato di ginnastica finalizzata alla salute e al fitness.
                     </p>
                     <p class="text-sm sm:text-base opacity-75 leading-relaxed font-light">
                         La mia filosofia di allenamento si basa su costanza e metodo. Affronto ogni percorso con ascolto e attenzione agli obiettivi personali del cliente, sempre in un'ottica di miglioramento e cura globale della persona.
